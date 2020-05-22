@@ -1,3 +1,21 @@
+let Diamante_1ç = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . 9 9 9 9 9 9 9 . . . . . 
+. . . 9 9 9 9 9 9 9 9 9 . . . . 
+. . 9 9 9 9 9 9 9 9 9 9 9 . . . 
+. . 9 9 9 9 9 9 9 9 9 9 9 . . . 
+. . 9 9 9 9 9 9 9 9 9 9 9 . . . 
+. . . 9 9 9 9 9 9 9 9 9 . . . . 
+. . . . 9 9 9 9 9 9 9 . . . . . 
+. . . . . 9 9 9 9 9 . . . . . . 
+. . . . . . 9 9 9 . . . . . . . 
+. . . . . . . 9 . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
 let AMigo = sprites.create(img`
 . . . 6 6 6 6 6 6 6 6 6 6 . . . 
 . . 6 6 6 6 6 6 6 6 6 6 6 6 . . 
@@ -36,3 +54,7 @@ a a a 5 5 5 5 5 5 5 5 5 5 a a a
 `, SpriteKind.Enemy)
 controller.moveSprite(AMigo)
 NMigo.follow(AMigo, 40)
+if (NMigo.overlapsWith(AMigo)) {
+    NMigo.say("!JAJAJA¡ LOOSER", 500)
+    game.over(false)
+}
